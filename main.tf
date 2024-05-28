@@ -4,8 +4,7 @@ resource "aws_iam_role" "this" {
 }
 
 resource "aws_iam_role_policy_attachment" "this" {
-  for_each = { for policy in var.policy_arns : policy => policy }
-
-  role       = aws_iam_role.this.name
+  role       = var.role_name
   policy_arn = each.value
+  for_each   = { for idx, policy_arn in var.policy_arns : idx => policy_arn }
 }
