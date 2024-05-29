@@ -4,12 +4,13 @@ resource "aws_iam_role_policy_attachment" "this" {
   policy_arn = each.value
 }
 
-output "role_name" {
-  description = "The name of the IAM role."
-  value       = var.role_name
-}
+// Removed output definitions from here
+// output "role_name" {
+//   description = "The name of the IAM role."
+//   value       = var.role_name
+// }
 
-output "role_arn" {
-  description = "The ARN of the IAM role."
-  value       = aws_iam_role_policy_attachment.this[0].role
-}
+// output "role_arn" {
+//   description = "The ARN of the IAM role."
+//   value       = aws_iam_role_policy_attachment.this[0].role
+// }
